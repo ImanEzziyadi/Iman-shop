@@ -1,6 +1,6 @@
 <template>
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
   <!-- Container wrapper -->
   <div class="container">
     <!-- Navbar brand -->
@@ -38,8 +38,6 @@
           <router-link class="nav-link" to="/about">About Us</router-link>
         </li>
 
-
-
       </ul>
       <!-- Left links -->
 
@@ -55,11 +53,11 @@
             aria-expanded="false"
           >
             <i class="fas fa-shopping-cart"></i>
-            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+            <span v-show="cartItemCount" class="badge rounded-pill badge-notification bg-danger">{{cartItemCount}}</span>
           </a>
 
           <ul class="dropdown-menu dropdown-menu-end shopping-cart" aria-labelledby="navbarDropdown">
-            ShoppingCart
+            <shopping-cart />
           </ul>
         </li>
 
@@ -102,13 +100,14 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import ShoppingCart from './shoppingcart/ShoppingCart.vue'
 
 export default {
   components: {
-
+    ShoppingCart
   },
   computed: {
-    ...mapGetters(['loggedIn'])
+    ...mapGetters(['loggedIn, cartItemCount'])
   },
   methods: {
     ...mapActions(['logout'])

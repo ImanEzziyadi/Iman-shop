@@ -11,13 +11,21 @@
         <p class="card-text">{{ product.short }}</p>
 
       </div>
-        <router-link :to="{name: 'ProductDetails', params: {id: product._id}}" type="button" class="btn btn-primary">Show Product</router-link>
+    <router-link :to="{name: 'ProductDetails', params: {id: product._id}}" type="button" class="btn btn-secondary">Show Product</router-link> 
     </div>
   </div>
 </template>
 
 <script>
+
+
+
+
+
+
+
 export default {
+  name: 'Product',
   props: ['product']
 }
 </script>

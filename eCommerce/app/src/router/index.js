@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Products from '../views/Products.vue'
+import Products from '../views/Products'
+import ProductDetails from '../views/ProductDetails'
+
  import Login from '../views/Login.vue'
  import Register from '../views/Register.vue'
  import User from '../views/User.vue'
@@ -22,6 +24,12 @@ const routes = [
     component: Products
   },
   {
+    path: '/product/details/:id',
+    name: 'ProductDetails',
+    component: ProductDetails,
+    props: true
+  },
+  {
     path: '/login',
     name: 'Login',
     component: Login
@@ -33,11 +41,13 @@ const routes = [
     component: Register
   },
   {
-    path: '/user',
-    name: 'User',
-    component: User,
-    meta: { authorize: true }
-  },
+  path: '/user',
+  name: 'User',
+  component: User,
+  meta: { authorize: true }
+},
+ 
+   
   {
     path: '/about',
     name: 'About',
