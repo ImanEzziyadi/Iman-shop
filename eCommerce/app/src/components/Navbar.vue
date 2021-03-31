@@ -99,7 +99,8 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters} from 'vuex'
+import { mapActions }  from 'vuex'
 import ShoppingCart from './shoppingcart/ShoppingCart.vue'
 
 export default {
@@ -107,7 +108,7 @@ export default {
     ShoppingCart
   },
   computed: {
-    ...mapGetters(['loggedIn, cartItemCount'])
+    ...mapGetters(['loggedIn', 'cartItemCount'])
   },
   methods: {
     ...mapActions(['logout'])
