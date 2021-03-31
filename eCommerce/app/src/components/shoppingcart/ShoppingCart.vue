@@ -2,7 +2,7 @@
   <div>
     <shopping-cart-product v-for="item in shoppingCart" :key="item.product.id" :item="item" />
 
-    <div v-if="shoppingCart.length < 1 " class="cart-item">
+    <div v-if="shoppingCart.length < 1" class="cart-item">
       <div class="p-2 d-flex justify-content-center align-items-center">
         Din kundvagn är tom.
       </div>
@@ -16,7 +16,7 @@
         </div>
         <small class="text-muted">inkl. moms</small>
       </div>
-      <button class="btn btn-secondary">Gå till kassan</button>
+      <button class="btn btn-primary">Gå till kassan</button>
     </div>
 
   </div>

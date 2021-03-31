@@ -2,7 +2,6 @@
 export default {
   state: {
     cart: []
-
   },
   getters: {
     shoppingCart: state => {
@@ -18,12 +17,15 @@ export default {
   },
   mutations: {
     ADD_TO_CART: (state, { product, quantity }) => {
-      let exists = state.cart.find(item => item.product.id === product.id)
+       let exists = state.cart.find(item => item.product._id === product._id)
+       console.log(exists)
       if(exists) {
         exists.quantity += quantity
         return
       }
+
       state.cart.push({product, quantity})
+      console.log(state.cart)
     }
   },
   actions: {

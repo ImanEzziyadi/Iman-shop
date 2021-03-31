@@ -74,7 +74,7 @@
             <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
               data-parent="#accordionEx">
               <div class="card-body">
-                {{ product.desc.slice(0,500) }}
+                {{ product.desc.slice(0,500) }} 
               </div>
             </div>
           </div>
@@ -113,7 +113,8 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   props: ['id'],
   data() {
