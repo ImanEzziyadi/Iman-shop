@@ -74,7 +74,8 @@
             <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
               data-parent="#accordionEx">
               <div class="card-body">
-                {{ product.desc.slice(0,500) }} 
+                {{ product.desc }} 
+                <!-- .slice(0,500) -->
               </div>
             </div>
           </div>
@@ -91,8 +92,10 @@
 
             <div class="row mt-3">
               <div class="col-md-12 text-center text-md-left text-md-right">
+                <p class='garantee'> one years guarantee </p>
                 <button class="btn btn-secondary btn-rounded" @click="addProductToCart({ product, quantity })">
                   <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Add to cart</button>
+                  <!-- <input type="number" class="fas fa-cart-plus mr-2"  aria-hidden="true" v-model="quantity"> -->
               </div>
             </div>
 
@@ -134,6 +137,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.garantee{
+  color:red
+}
 
 </style>

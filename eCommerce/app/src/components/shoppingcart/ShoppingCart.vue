@@ -12,13 +12,13 @@
     <div class="p-2 d-flex justify-content-between align-items-center">
       <div class="ms-2">
         <div class="total-price">
-          Totalt: <span class="ms-1">1000 SEK</span>
+          Totalt: <span class="ms-1">{{shoppingCartTotal}} SEK</span>
         </div>
         <small class="text-muted">inkl. moms</small>
       </div>
       <button class="btn btn-primary">Gå till kassan</button>
     </div>
-
+    
   </div>
 </template>
 
@@ -30,11 +30,14 @@ export default {
     ShoppingCartProduct
   },
   computed: {
-    ...mapGetters(['shoppingCart'])
+    ...mapGetters(['shoppingCart', 'shoppingCartTotal'])
   }
 }
 </script>
 
-<style>
+<style scoped>
+.total-price{
+  color: red;
+}
 
 </style>

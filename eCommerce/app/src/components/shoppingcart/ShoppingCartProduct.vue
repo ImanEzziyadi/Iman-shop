@@ -10,10 +10,10 @@
       </div>
       <div>
         <div class="btn-group btn-group-sm me-2" role="group" area-label="quantity">
-          <button class="btn btn-dark" @click.stop="">-</button>
-          <button class="btn btn-dark" @click.stop="">+</button>
+          <button class="btn btn-dark" @click.stop="decrementQuantity(item)">-</button>
+          <button class="btn btn-dark" @click.stop="incrementQuantity(item)">+</button>
         </div>
-        <button class="btn btn-danger btn-sm " @click.stop=""><i class="fas fa-trash"></i></button>
+        <button class="btn btn-danger btn-sm " @click.stop="deleteProductFromCart(item.product._id)"><i class="fas fa-trash"></i></button>
       </div>
     </div>
     <div class="dropdown-divider"></div>
@@ -21,8 +21,12 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
-  props: ['item']
+  props: ['item'],
+   methods: {
+    ...mapActions(['deleteProductFromCart', 'incrementQuantity', 'decrementQuantity'])
+  }
 
 }
 </script>

@@ -11,23 +11,35 @@
         <p class="card-text">{{ product.short }}</p>
 
       </div>
-    <router-link :to="{name: 'ProductDetails', params: {id: product._id}}" type="button" class="btn btn-secondary">Show Product</router-link> 
+      <div class="d-flex">
+
+        <router-link :to="{name: 'ProductDetails', params: {id: product._id}}" type="button" class="btn btn-secondary">Show Product</router-link> 
+    
+         <button class="btn btn-primary" @click="addProductToCart({product, quantity})">Add to cart</button>
+           <!-- <input type="number" v-model="quantity"> -->
+      </div>
+    
     </div>
   </div>
 </template>
 
 <script>
-
-
-
-
-
-
-
+import { mapActions } from 'vuex'
 export default {
   name: 'Product',
-  props: ['product']
+  props: ['product'],
+
+ data() {
+    return {
+      quantity: 1
+    }
+  },
+  
+  methods: {
+    ...mapActions(['addProductToCart'])
+  }
 }
+  
 </script>
 
 <style>
