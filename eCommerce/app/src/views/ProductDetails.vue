@@ -75,7 +75,7 @@
               data-parent="#accordionEx">
               <div class="card-body">
                 {{ product.desc }} 
-                <!-- .slice(0,500) -->
+            
               </div>
             </div>
           </div>

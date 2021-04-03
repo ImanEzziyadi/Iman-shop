@@ -1,26 +1,26 @@
 
 export default {
   state: {
-    cart: []
+    shoppingCart: []
   },
   getters: {
     shoppingCart: state => {
       if(sessionStorage.getItem('cart') !== null) {
-        state.cart = JSON.parse(sessionStorage.getItem('cart'))
+        state.shoppingCart = JSON.parse(sessionStorage.getItem('cart'))
       }
-      return state.cart
+      return state.shoppingCart
     },
     cartItemCount: state => {
       let items = 0
-      state.cart.forEach(item => {
+      state.shoppingCart.forEach(item => {
         items += item.quantity
       })
       return items
     },
     shoppingCartTotal: state => {
       let total = 0
-      if(state.cart.length !== 0) {
-        state.cart.forEach(item => {
+      if(state.shoppingCart.length !== 0) {
+        state.shoppingCart.forEach(item => {
           total += item.product.price * item.quantity
         })
       }
@@ -29,29 +29,31 @@ export default {
   },
   mutations: {
     ADD_TO_CART: (state, { product, quantity }) => {
-       let exists = state.cart.find(item => item.product._id === product._id)
+       let exists = state.shoppingCart.find(item => item.product._id === product._id)
       if(exists) {
         exists.quantity += quantity
         return
       }
 
-      state.cart.push({product, quantity})
+      state.shoppingCart.push({product, quantity})
+      sessionStorage.setItem('cart', JSON.stringify(state.shoppingCart))
+      console.log( state.shoppingCart)
     },
     DELETE_PRODUCT_FROM_CART: (state, id) => {
-      state.cart = state.cart.filter(item => item.product._id !== id)
-      sessionStorage.setItem('cart', JSON.stringify(state.cart))
-      console.log( state.cart)
+      state.shoppingCart = state.shoppingCart.filter(item => item.product._id !== id)
+      sessionStorage.setItem('cart', JSON.stringify(state.shoppingCart))
+      console.log( state.shoppingCart)
      },
     DECREMENT_QUANTITY: (state, item) => {
       item.quantity -= 1
-      sessionStorage.setItem('cart', JSON.stringify(state.cart))
+      sessionStorage.setItem('cart', JSON.stringify(state.shoppingCart))
     },
     INCREMENT_QUANTITY: (state, {product, quantity}) => {
-      let item = state.cart.find(i => i.product._id === product._id)
+      let item = state.shoppingCart.find(i => i.product._id === product._id)
       item.quantity += Number(quantity)
-      sessionStorage.setItem('cart', JSON.stringify(state.cart))
+      sessionStorage.setItem('cart', JSON.stringify(state.shoppingCart))
   
-    },
+    }
   
 
   },

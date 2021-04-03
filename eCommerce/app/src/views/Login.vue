@@ -3,14 +3,14 @@
     <form class="border text-center p-5 col-6 mx-auto" @submit.prevent="onSubmit">
       <p class="h4 mb-4">Sign In</p>
       <!-- Email input -->
-      <div class="form-outline mb-4">
-        <input type="email" id="form2Example1" class="form-control border-bottom" v-model="email"/>
+      <div class=" mb-4">
+        <input type="email" id="form2Example1" class="form-control"   v-model="email"/>
         <label class="form-label" for="form2Example1">Email address</label>
       </div>
 
       <!-- Password input -->
-      <div class="form-outline mb-4">
-        <input type="password" id="form2Example2" class="form-control border-bottom" v-model="password"/>
+      <div class=" mb-4">
+        <input type="password" id="form2Example2" class="form-control " v-model="password" />
         <label class="form-label" for="form2Example2">Password</label>
       </div>
 
@@ -21,6 +21,22 @@
       <!-- Register buttons -->
       <div class="text-center">
         <p>Not a member? <router-link to="/register">Register</router-link></p>
+        <p>or sign up with:</p>
+    <button type="button" class="btn btn-secondary btn-floating mx-1">
+      <i class="fab fa-facebook-f"></i>
+    </button>
+
+    <button type="button" class="btn btn-secondary btn-floating mx-1">
+      <i class="fab fa-google"></i>
+    </button>
+
+    <button type="button" class="btn btn-secondary btn-floating mx-1">
+      <i class="fab fa-twitter"></i>
+    </button>
+
+    <button type="button" class="btn btn-secondary btn-floating mx-1">
+      <i class="fab fa-github"></i>
+    </button>
         
       </div>
     </form>
@@ -47,8 +63,8 @@ export default {
 
         let route = this.$route.query.redirect
         this.login({user, route})
-        // this.$router.replace(this.$route.query.redirect)
-      }
+        
+         }
     }
   }
 }

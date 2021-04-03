@@ -1,8 +1,6 @@
 <template>
   <div>
     <navbar />
-    
-    
     <router-view/>
   </div>
 </template>
@@ -13,7 +11,6 @@ import Navbar from './components/Navbar'
 export default {
   components: {
     Navbar
-    
   },
   methods: {
     ...mapActions(['checkUser'])

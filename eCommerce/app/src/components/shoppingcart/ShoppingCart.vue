@@ -11,7 +11,7 @@
 
     <div class="p-2 d-flex justify-content-between align-items-center">
       <div class="ms-2">
-        <div class="total-price">
+        <div class="total-style">
           Totalt: <span class="ms-1">{{shoppingCartTotal}} SEK</span>
         </div>
         <small class="text-muted">inkl. moms</small>
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped>
-.total-price{
+.total-style {
   color: red;
 }
 
