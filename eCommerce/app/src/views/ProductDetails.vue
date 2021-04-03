@@ -95,7 +95,6 @@
                 <p class='garantee'> one years guarantee </p>
                 <button class="btn btn-secondary btn-rounded" @click="addProductToCart({ product, quantity })">
                   <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Add to cart</button>
-                  <!-- <input type="number" class="fas fa-cart-plus mr-2"  aria-hidden="true" v-model="quantity"> -->
               </div>
             </div>
 
